@@ -1,0 +1,18 @@
+{
+  "user": [
+    {
+      "nama": "Diaz Ardian Alvianto",
+      "email": "ddaiazardian@gmail.com",
+      "nip": 123456789,
+      "nohape": 81236678891,
+      "password": "adminadmin",
+      "id": 1
+    }
+  ],
+  "roles": [],
+  "divisi": [],
+  "task": [],
+  "profile": {
+    "name": "diaz"
+  }
+}

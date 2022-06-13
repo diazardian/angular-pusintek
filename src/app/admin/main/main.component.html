@@ -1,0 +1,56 @@
+<body class="bg-gray-100 font-family-karla flex">
+
+  <aside class="relative bg-blue-500 h-screen w-64 hidden sm:block shadow-xl">
+    <div class="p-6">
+      <a routerLink="admin/home" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
+      <a routerLink="admin/input_task">
+        <button
+          class="w-full bg-white cta-btn font-medium py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+          <i class="fas fa-plus mr-3"></i> New Task
+        </button>
+      </a>
+    </div>
+    <nav class="text-white text-base font-medium pt-3">
+      <a routerLink="admin/home" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+        <fa-icon [icon]="menu1" class="mr-3"></fa-icon>
+        Dashboard
+      </a>
+      <a routerLink="admin/task" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <fa-icon [icon]="menu2" class="mr-3"></fa-icon>
+        Task
+      </a>
+      <a routerLink="admin/roles" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <fa-icon [icon]="menu3" class="mr-3"></fa-icon>
+        Role
+      </a>
+      <a routerLink="admin/divisi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <fa-icon [icon]="menu4" class="mr-3"></fa-icon>
+        Divisi
+      </a>
+      <a routerLink="admin/users" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <fa-icon [icon]="menu5" class="mr-3"></fa-icon>
+        User
+      </a>
+    </nav>
+  </aside>
+
+  <div class="w-full flex flex-col h-screen overflow-y-hidden">
+    <!-- Desktop Header -->
+    <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+      <div class="w-1/2"></div>
+      <div class="relative w-1/2 flex justify-end">
+        <button (click)="toggleMenu()"
+          class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+          <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
+        </button>
+        <div [hidden]="showMenu" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+          <a routerLink="admin/users" class="block px-4 py-2 account-link hover:text-white">Account</a>
+          <a routerLink="home" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+        </div>
+      </div>
+    </header>
+
+    <router-outlet></router-outlet>
+    <!-- Code block ends -->
+  </div>
+</body>

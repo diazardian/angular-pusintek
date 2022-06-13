@@ -1,0 +1,46 @@
+<div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+  <main class="w-full flex-grow p-6">
+    <h1 class="w-full text-3xl text-black pb-6">Manajemen User</h1>
+
+    <div class="flex flex-wrap">
+      <div class="w-full lg:w-full my-6 pr-0 lg:pr-2">
+        <p class="text-xl pb-6 flex items-center">
+          <i class="fas fa-list mr-3"></i> Mendaftarkan User
+        </p>
+        <div class="leading-loose">
+          <form [formGroup]="signupForm" (ngSubmit)="signUp()" class="p-10 bg-white rounded shadow-xl">
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="nama">Nama</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="nama" formControlName="nama" type="text"
+                required="" placeholder="Nama User" aria-label="nama">
+            </div>
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="email">Email</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="email" formControlName="email" type="email"
+                required="" placeholder="email@gmail.com" aria-label="email">
+            </div>
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="nip">NIP</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="nip" formControlName="nip" type="number"
+                required="" placeholder="123456789" aria-label="nip" maxlength="16">
+            </div>
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="nohape">Nomor Handphone</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="nohape" formControlName="nohape" type="number"
+                required="" placeholder="0812345678" aria-label="nohape" maxlength="13">
+            </div>
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="password">Password</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="password" formControlName="password" type="password"
+                required="" placeholder="Password" aria-label="password">
+            </div>
+            <div class="mt-6">
+              <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
+                type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
