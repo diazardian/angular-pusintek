@@ -9,6 +9,6 @@ export class InputTaskService {
   constructor(private http : HttpClient) { }
 
   postTask(data : any){
-    return this.http.post<any>("http://localhost:3000/user",data);
+    return this.http.post<any>("http://localhost:3000/task",data);
   }
 }

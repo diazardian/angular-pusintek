@@ -45,7 +45,15 @@
       "id": 3
     }
   ],
-  "task": [],
+  "task": [
+    {
+      "task": "Membuat Webiste",
+      "tanggal_mulai": "2022-06-14",
+      "tanggal_selesai": "2022-06-15",
+      "userId": 2,
+      "id": 1
+    }
+  ],
   "profile": {
     "name": "diaz"
   }

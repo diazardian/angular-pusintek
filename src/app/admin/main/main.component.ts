@@ -22,6 +22,7 @@ export class MainComponent implements OnInit {
   menu3 = faDiceD6;
   menu4 = faPeopleLine;
   menu5 = faUser;
+  admin = 'admin';
 
   user: any;
   constructor(private apiUser: MainService, private router: Router) { }
@@ -32,10 +33,13 @@ export class MainComponent implements OnInit {
   getData() {
     if (localStorage.getItem('user') !== null) {
       const res = localStorage.getItem('user');
-      const user = JSON.parse(res !== null ? res : '{}');
-      return user;
+      this.user = JSON.parse(res !== null ? res : '{}');
     } else {
-      alert('Anda belum login');
+      Swal.fire(
+        'Gagal!',
+        'Anda belum login!',
+        'error'
+      )
       this.router.navigate(['login']);
     }
   }

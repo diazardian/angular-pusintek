@@ -1,32 +1,42 @@
 <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-    <main class="w-full flex-grow p-6">
-        <h1 class="w-full text-3xl text-black pb-6">Input Task</h1>
+  <main class="w-full flex-grow p-6">
+    <h1 class="w-full text-3xl text-black pb-6">Input Task</h1>
 
-        <div class="flex flex-wrap">
-            <div class="w-full lg:w-full my-6 pr-0 lg:pr-2">
-                <p class="text-xl pb-6 flex items-center">
-                    <i class="fas fa-list mr-3"></i> Masukkan Task Pegawai
-                </p>
-                <div class="leading-loose">
-                    <form class="p-10 bg-white rounded shadow-xl">
-                        <div class="pb-4">
-                            <label class="block text-sm text-gray-600" for="task">Nama Task</label>
-                            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="task" name="task" type="text" required="" placeholder="Membuat Arsip 2022" aria-label="task">
-                        </div>
-                        <div class="pb-4">
-                            <label class="block text-sm text-gray-600" for="tglmu">Tanggal Mulai</label>
-                            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="tglmu" name="tglmu" type="date" required="" placeholder="01/02/2022" aria-label="tglmu">
-                        </div>
-                        <div class="pb-4">
-                            <label class="block text-sm text-gray-600" for="tglak">Tanggal Selesai</label>
-                            <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="tglak" name="tglak" type="date" required="" placeholder="01/02/2022" aria-label="tglak">
-                        </div>
-                        <div class="mt-6">
-                            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
+    <div class="flex flex-wrap">
+      <div class="w-full lg:w-full my-6 pr-0 lg:pr-2">
+        <p class="text-xl pb-6 flex items-center">
+          <i class="fas fa-list mr-3"></i> Masukkan Task Pegawai
+        </p>
+        <div class="leading-loose">
+          <form [formGroup]="taskForm" (ngSubmit)="postTask()" class="p-10 bg-white rounded shadow-xl">
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="task">Nama Task</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="task" formControlName="task" type="text"
+                required="" placeholder="Membuat Arsip 2022" aria-label="task">
             </div>
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="tglmu">Tanggal Mulai</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="tglmu" formControlName="tanggal_mulai" type="date"
+                required="" placeholder="01/02/2022" aria-label="tglmu">
+            </div>
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="tglak">Tanggal Selesai</label>
+              <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="tglak" formControlName="tanggal_selesai" type="date"
+                required="" placeholder="01/02/2022" aria-label="tglak">
+            </div>
+            <div class="pb-4">
+              <label class="block text-sm text-gray-600" for="task">Nama Pegawai</label>
+              <select class="w-full px-5 py-3 text-gray-700 bg-gray-200 rounded" formControlName="userId">
+                <option *ngFor="let user of pegawaiData" [ngValue]=user.id>{{user.nama}}</option>
+              </select>
+            </div>
+            <div class="mt-6">
+              <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
+                type="submit">Submit</button>
+            </div>
+          </form>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </div>

@@ -1,6 +1,6 @@
 <body class="bg-gray-100 font-family-karla flex">
-
-  <aside class="relative bg-blue-500 h-screen w-64 hidden sm:block shadow-xl">
+  
+  <aside *ngIf="user.rolesId == 3" class="relative bg-blue-500 h-screen w-64 hidden sm:block shadow-xl">
     <div class="p-6">
       <a routerLink="admin/home" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
       <a routerLink="admin/input_task">
@@ -11,25 +11,40 @@
       </a>
     </div>
     <nav class="text-white text-base font-medium pt-3">
-      <a routerLink="admin/home" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+      <a routerLink="admin/home" routerLinkActive="active-nav-link" class="flex items-center text-white py-4 pl-6 nav-item">
         <fa-icon [icon]="menu1" class="mr-3"></fa-icon>
         Dashboard
       </a>
-      <a routerLink="admin/task" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a routerLink="admin/task" routerLinkActive="active-nav-link" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <fa-icon [icon]="menu2" class="mr-3"></fa-icon>
         Task
       </a>
-      <a routerLink="admin/roles" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a routerLink="admin/roles" routerLinkActive="active-nav-link" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <fa-icon [icon]="menu3" class="mr-3"></fa-icon>
         Role
       </a>
-      <a routerLink="admin/divisi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a routerLink="admin/divisi" routerLinkActive="active-nav-link" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <fa-icon [icon]="menu4" class="mr-3"></fa-icon>
         Divisi
       </a>
-      <a routerLink="admin/users" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a routerLink="admin/users" routerLinkActive="active-nav-link" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <fa-icon [icon]="menu5" class="mr-3"></fa-icon>
         User
+      </a>
+    </nav>
+  </aside>
+  <aside *ngIf="user.rolesId !== 3" class="relative bg-blue-500 h-screen w-64 hidden sm:block shadow-xl">
+    <div class="p-6">
+      <a routerLink="admin/home" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
+    </div>
+    <nav class="text-white text-base font-medium pt-3">
+      <a routerLink="admin/home" routerLinkActive="active-nav-link" class="flex items-center text-white py-4 pl-6 nav-item">
+        <fa-icon [icon]="menu1" class="mr-3"></fa-icon>
+        Dashboard
+      </a>
+      <a routerLink="admin/task" routerLinkActive="active-nav-link" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+        <fa-icon [icon]="menu2" class="mr-3"></fa-icon>
+        Task
       </a>
     </nav>
   </aside>
