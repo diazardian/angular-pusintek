@@ -3,14 +3,50 @@
     {
       "nama": "Diaz Ardian Alvianto",
       "email": "ddaiazardian@gmail.com",
-      "nip": 123456789,
-      "nohape": 81236678891,
-      "password": "adminadmin",
+      "nip": 2,
+      "nohape": 214124124,
+      "roles": "1",
+      "password": "1212312",
       "id": 1
+    },
+    {
+      "nama": "Diaz Ardian Alvianto",
+      "email": "ddaiazardian@gmail.com",
+      "nip": 23423424234,
+      "nohape": 234234324234,
+      "roles": "",
+      "password": "23423423423",
+      "id": 2
     }
   ],
-  "roles": [],
-  "divisi": [],
+  "roles": [
+    {
+      "roles": "Admin",
+      "id": 1
+    },
+    {
+      "roles": "Staff",
+      "id": 2
+    }
+  ],
+  "divisi": [
+    {
+      "divisi": "Keuangan",
+      "id": 1
+    },
+    {
+      "divisi": "Kepegawaian",
+      "id": 2
+    },
+    {
+      "divisi": "Bendahara",
+      "id": 3
+    },
+    {
+      "divisi": "IT",
+      "id": 4
+    }
+  ],
   "task": [],
   "profile": {
     "name": "diaz"

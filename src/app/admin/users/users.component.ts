@@ -20,6 +20,7 @@ export class UsersComponent implements OnInit {
       email:['',Validators.required],
       nip:['',Validators.required],
       nohape:['',Validators.required],
+      roles:[''],
       password:['',Validators.required],
     });
   }
@@ -32,7 +33,7 @@ export class UsersComponent implements OnInit {
             'Berhasil!',
             'Data berhasil ditambahkan',
             'success'
-          )
+          ) 
           this.signupForm.reset();
           this.router.navigate(['admin/users']);
         },

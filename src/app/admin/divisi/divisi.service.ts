@@ -8,10 +8,19 @@ export class DivisiService {
 
   constructor(private http : HttpClient) { }
 
-  postRole(data : any){
+  postDivisi(data : any){
     return this.http.post<any>("http://localhost:3000/divisi",data);
   }
-  getRole(){
+
+  getDivisi(){
     return this.http.get<any>("http://localhost:3000/divisi");
+  }
+
+  updateDivisi(id : number,data : any){
+    return this.http.put<any>("http://localhost:3000/divisi/"+id,data);
+  }
+
+  deleteDivisi(id : number){
+    return this.http.delete<any>("http://localhost:3000/divisi/"+id);
   }
 }

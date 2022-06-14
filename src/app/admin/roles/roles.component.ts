@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { rolesModel } from './roles.model';
 import { RolesService } from './roles.service';
 
 @Component({
@@ -12,12 +13,17 @@ import { RolesService } from './roles.service';
 export class RolesComponent implements OnInit {
 
   rolesForm !: FormGroup;
+  rolesEditForm !: FormGroup;
+  rolesModelObj =  new rolesModel();
   rolesData !: any;
   constructor(private formBuilder: FormBuilder, private apiRoles: RolesService, private router: Router) { }
 
   ngOnInit(): void {
     this.rolesForm = this.formBuilder.group({
       roles: ['', Validators.required]
+    })
+    this.rolesEditForm = this.formBuilder.group({
+      editRoles: ['', Validators.required]
     })
     this.getRoles();
   }
@@ -76,14 +82,47 @@ export class RolesComponent implements OnInit {
               this.rolesForm.reset();
               this.getRoles();
               this.router.navigate(['admin/roles']);
+            },
+            error: () => {
+              Swal.fire(
+                'Gagal!',
+                'Data gagal dihapus',
+                'error'
+              )
             }
           })
+          
       }
     })
 
   }
-  editRole(row: any) {
-    this.rolesForm.controls['roles'].setValue(row.roles);
+  onEdit(row: any) {
+    console.log(row);
+    this.rolesModelObj.id = row.id;
+    this.rolesEditForm.controls['editRoles'].setValue(row.roles);
+  }
+  updateRoles() {
+    this.rolesModelObj.roles = this.rolesEditForm.value.editRoles;
+    this.apiRoles.updateRole(this.rolesModelObj.id, this.rolesModelObj)
+    .subscribe({
+      next: (res) => {
+        Swal.fire(
+          'Berhasil!',
+          'Data berhasil diedit!',
+          'success'
+        )
+        this.rolesEditForm.reset();
+        this.getRoles();
+        this.router.navigate(['admin/roles']);
+      },
+      error: () => {
+        Swal.fire(
+          'Gagal!',
+          'Data gagal diupdate',
+          'error'
+        )
+      }
+    })
   }
 
 }
