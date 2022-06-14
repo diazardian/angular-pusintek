@@ -53,8 +53,8 @@
                 </tr>
               </thead>
               <tbody class="text-gray-700">
-                <tr *ngFor="let row of rolesData">
-                  <td class="text-center">{{row.id}}</td>
+                <tr *ngFor="let row of rolesData, let i= index">
+                  <td class="text-center">{{i+1}}</td>
                   <td class="pl-4">{{row.roles}}</td>
                   <td class="text-white">
                     <button (click)="onEdit(row)" class="px-4 py-2 mr-4 bg-blue-500 rounded-lg hover:bg-blue-700">Edit</button>

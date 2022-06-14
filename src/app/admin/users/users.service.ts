@@ -12,6 +12,18 @@ export class UsersService {
     return this.http.post<any>("http://localhost:3000/user",data);
   }
   getUser(){
-    return this.http.get<any>("http://localhost:3000/user");
+    return this.http.get<any>("http://localhost:3000/user?_expand=roles&_expand=divisi");
+  }
+  getDivisi(){
+    return this.http.get<any>("http://localhost:3000/divisi");
+  }
+  getRoles(){
+    return this.http.get<any>("http://localhost:3000/roles");
+  }
+  updateUser(id : any,data : any){
+    return this.http.put<any>("http://localhost:3000/user/"+id,data);
+  }
+  deleteUser(id : any){
+    return this.http.delete<any>("http://localhost:3000/user/"+id);
   }
 }

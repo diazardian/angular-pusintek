@@ -45,7 +45,7 @@
         </button>
         <div [hidden]="showMenu" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
           <a routerLink="admin/users" class="block px-4 py-2 account-link hover:text-white">Account</a>
-          <a routerLink="home" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+          <a (click)="deleteData()" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
         </div>
       </div>
     </header>

@@ -1,39 +1,5 @@
 {
-  "user": [
-    {
-      "nama": "Diaz Ardian Alvianto",
-      "email": "ddaiazardian@gmail.com",
-      "nip": 2,
-      "nohape": 214124124,
-      "roles": "1",
-      "password": "1212312",
-      "id": 1
-    },
-    {
-      "nama": "Diaz Ardian Alvianto",
-      "email": "ddaiazardian@gmail.com",
-      "nip": 23423424234,
-      "nohape": 234234324234,
-      "roles": "",
-      "password": "23423423423",
-      "id": 2
-    }
-  ],
-  "roles": [
-    {
-      "roles": "Admin",
-      "id": 1
-    },
-    {
-      "roles": "Staff",
-      "id": 2
-    }
-  ],
   "divisi": [
-    {
-      "divisi": "Keuangan",
-      "id": 1
-    },
     {
       "divisi": "Kepegawaian",
       "id": 2
@@ -45,6 +11,38 @@
     {
       "divisi": "IT",
       "id": 4
+    }
+  ],
+  "user": [
+    {
+      "nama": "Diaz Ardian Alvianto",
+      "email": "ddaiazardian@gmail.com",
+      "nip": 123,
+      "nohape": 81236678891,
+      "rolesId": 3,
+      "divisi": "Bendahara",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "nama": "Haikal Anwar",
+      "email": "haikal@email.com",
+      "nip": 111,
+      "nohape": 81234567891,
+      "rolesId": 2,
+      "divisi": "IT",
+      "password": "123",
+      "id": 2
+    }
+  ],
+  "roles": [
+    {
+      "roles": "Staff",
+      "id": 2
+    },
+    {
+      "roles": "Admin",
+      "id": 3
     }
   ],
   "task": [],
