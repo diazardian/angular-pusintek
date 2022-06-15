@@ -15,14 +15,14 @@
   ],
   "user": [
     {
+      "id": 3,
       "nama": "Diaz Ardian Alvianto",
       "email": "ddaiazardian@gmail.com",
       "nip": 123,
       "nohape": 81236678891,
       "rolesId": 3,
-      "divisi": "Bendahara",
-      "password": "123",
-      "id": 1
+      "divisi": "IT",
+      "password": "123"
     },
     {
       "nama": "Haikal Anwar",
@@ -32,7 +32,17 @@
       "rolesId": 2,
       "divisi": "IT",
       "password": "123",
-      "id": 2
+      "id": 4
+    },
+    {
+      "nama": "Agus Susilo",
+      "email": "agus@email.com",
+      "nip": 1234,
+      "nohape": 81236678191,
+      "rolesId": 2,
+      "divisi": "Bendahara",
+      "password": "123",
+      "id": 5
     }
   ],
   "roles": [
@@ -48,10 +58,19 @@
   "task": [
     {
       "task": "Membuat Webiste",
-      "tanggal_mulai": "2022-06-14",
-      "tanggal_selesai": "2022-06-15",
-      "userId": 2,
+      "tanggal_mulai": "2022-06-15",
+      "tanggal_selesai": "2022-06-22",
+      "userId": 4,
+      "status": "onprogress",
       "id": 1
+    },
+    {
+      "task": "Training",
+      "tanggal_mulai": "2022-06-16",
+      "tanggal_selesai": "2022-06-17",
+      "userId": 5,
+      "status": "onprogress",
+      "id": 2
     }
   ],
   "profile": {

@@ -49,8 +49,10 @@
                 type="password" required="" placeholder="Password" aria-label="password">
             </div>
             <div class="mt-6">
-              <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
+              <button class="px-4 mr-2 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
                 type="submit">Submit</button>
+                <button (click)="updateUser()" class="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded"
+                type="">Update</button>
             </div>
           </form>
         </div>
@@ -81,7 +83,7 @@
               <td class="text-center">{{row.roles.roles}}</td>
               <td class="text-center">{{row.divisi}}</td>
               <td class="text-white text-center">
-                <!-- <button (click)="onEdit(row)" class="px-4 py-2 mr-4 bg-blue-500 rounded-lg hover:bg-blue-700">Edit</button> -->
+                <button (click)="onEdit(row)" class="px-4 py-2 mr-4 bg-blue-500 rounded-lg hover:bg-blue-700">Edit</button>
                 <button (click)="deleteDivisi(row)" class="px-4 py-2 bg-red-500 rounded-lg hover:bg-red-700">Hapus</button>
               </td>
             </tr>

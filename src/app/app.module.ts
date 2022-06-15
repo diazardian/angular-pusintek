@@ -24,11 +24,11 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    AdminModule,
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

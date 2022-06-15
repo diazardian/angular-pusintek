@@ -1,1 +1,71 @@
-<p>todo works!</p>
+<div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+  <main class="w-full flex-grow p-6">
+    <h1 class="w-full text-3xl text-black pb-6">Task List</h1>
+    <div class="flex flex-wrap">
+      <div class="w-full lg:w-full my-6 pr-0 lg:pr-2">
+        <div class="w-full my-6 mb-10">
+          <div class="bg-white overflow-auto">
+            <table class="w-full bg-white table-auto" *ngIf="user.rolesId === 3">
+              <thead class="bg-gray-800 text-white">
+                <tr>
+                  <th class="w-1/3 text-center py-3 px-4 uppercase font-semibold text-sm">Task</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Nama</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Tanggal Mulai</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Tanggal Selesai</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Status</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700" *ngFor="let row of dataUser">
+                <tr>
+                  <td class="text-center">{{row.task}}</td>
+                  <td class="text-center">{{row.userId}}</td>
+                  <td class="text-center">{{row.tanggal_mulai}}</td>
+                  <td class="text-center">{{row.tanggal_selesai}}</td>
+                  <td class="text-center py-4">
+                    <p class="border-2 border-blue-300 rounded-lg">{{row.status}}</p>
+                  </td>
+                  <td class="text-white text-center">
+                    <!-- <button (click)="onEdit(row)"
+                      class="px-4 py-2 mr-4 bg-blue-500 rounded-lg hover:bg-blue-700">Edit</button> -->
+                    <button (click)="deleteTodo(row)"
+                      class="px-4 py-2 bg-red-500 rounded-lg hover:bg-red-700">Hapus</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="w-full bg-white table-auto" *ngIf="user.rolesId !== 3">
+              <thead class="bg-gray-800 text-white">
+                <tr>
+                  <th class="w-6 text-center py-3 px-4 uppercase font-semibold text-sm">No</th>
+                  <th class="w-1/3 text-center py-3 px-4 uppercase font-semibold text-sm">Task</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Nama</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Tanggal Mulai</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Tanggal Selesai</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Status</th>
+                  <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr *ngFor="let row of dataTask.task, let i= index">
+                  <td class="text-center">{{i+1}}</td>
+                  <td class="text-center">{{row.task}}</td>
+                  <td class="text-center">{{user.nama}}</td>
+                  <td class="text-center">{{row.tanggal_mulai}}</td>
+                  <td class="text-center">{{row.tanggal_selesai}}</td>
+                  <td class="text-center py-4">
+                    <p class="border-2 border-blue-300 rounded-lg">{{row.status}}</p>
+                  </td>
+                  <td class="text-white">
+                    <button (click)="updateTodo(row)"
+                      class="px-4 py-2 bg-green-500 rounded-lg hover:bg-green-700">Selesai</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

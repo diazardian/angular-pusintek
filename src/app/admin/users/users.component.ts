@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { userModel } from './users.model';
 import { UsersService } from './users.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class UsersComponent implements OnInit {
   divisiData !: any;
   rolesData !: any;
   userData !: any;
+  userModelObj = new userModel;
   constructor(private formBuilder: FormBuilder, private apiUsers: UsersService, private router: Router) { }
 
   ngOnInit(): void {
@@ -82,6 +84,47 @@ export class UsersComponent implements OnInit {
         }
       })
   }
+  onEdit(row : any) {
+    console.log(row);
+    this.userModelObj.id = row.id;
+    this.signupForm.controls['nama'].setValue(row.nama);
+    this.signupForm.controls['email'].setValue(row.email);
+    this.signupForm.controls['nip'].setValue(row.nip);
+    this.signupForm.controls['nohape'].setValue(row.nohape);
+    this.signupForm.controls['rolesId'].setValue(row.rolesId);
+    this.signupForm.controls['divisi'].setValue(row.divisi);
+    this.signupForm.controls['password'].setValue(row.password);
+  }
+  updateUser() {
+    this.userModelObj.nama = this.signupForm.value.nama;
+    this.userModelObj.email = this.signupForm.value.email;
+    this.userModelObj.nip = this.signupForm.value.nip;
+    this.userModelObj.nohape = this.signupForm.value.nohape;
+    this.userModelObj.rolesId = this.signupForm.value.rolesId;
+    this.userModelObj.divisi = this.signupForm.value.divisi;
+    this.userModelObj.password = this.signupForm.value.password;
+    this.apiUsers.updateUser(this.userModelObj.id, this.userModelObj)
+    .subscribe({
+      next: (res) => {
+        Swal.fire(
+          'Berhasil!',
+          'Data berhasil diedit!',
+          'success'
+        )
+        this.signupForm.reset();
+        this.getUser();
+        this.router.navigate(['admin/users']);
+      },
+      error: () => {
+        Swal.fire(
+          'Gagal!',
+          'Data gagal diupdate',
+          'error'
+        )
+      }
+    })
+
+  }
   deleteDivisi(row: any) {
     Swal.fire({
       title: 'Apakah kamu yakin?',
@@ -94,29 +137,34 @@ export class UsersComponent implements OnInit {
       cancelButtonText: 'Batal'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.apiUsers.deleteUser(row.id)
-          .subscribe({
-            next: (res) => {
-              Swal.fire(
-                'Berhasil!',
-                'Data berhasil dihapus',
-                'success'
-              )
-              this.signupForm.reset();
-              this.getUser();
-              this.router.navigate(['admin/users']);
-            },
-            error: () => {
-              Swal.fire(
-                'Gagal!',
-                'Data gagal dihapus',
-                'error'
-              )
-            }
-          })
-
+        if (row.rolesId === 3) {
+          Swal.fire(
+            'Gagal!',
+            'Anda tidak bisa menghapus!',
+            'error')
+        } else {
+          this.apiUsers.deleteUser(row.id)
+            .subscribe({
+              next: (res) => {
+                Swal.fire(
+                  'Berhasil!',
+                  'Data berhasil dihapus',
+                  'success'
+                )
+                this.signupForm.reset();
+                this.getUser();
+                this.router.navigate(['admin/users']);
+              },
+              error: () => {
+                Swal.fire(
+                  'Gagal!',
+                  'Data gagal dihapus',
+                  'error'
+                )
+              }
+            })
+        }
       }
     })
   }
-
 }

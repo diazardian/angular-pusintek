@@ -22,6 +22,7 @@ export class InputTaskComponent implements OnInit {
       tanggal_mulai : ['', Validators.required],
       tanggal_selesai : ['', Validators.required],
       userId : ['', Validators.required],
+      status : ['onprogress', Validators.required]
     })
     this.getUser();
   }
